@@ -1,0 +1,143 @@
+$rolltime: 1.9s
+$circle: 100px
+$ball: 20px
+$circletime: 2.5s
+$items: 10
+
+body
+  background-color: #AAB2BD
+.frame
+  position: fixed
+  top: 0
+  left: 0
+  bottom: -50px
+  right: 0
+  animation: shake $rolltime ease-in-out infinite
+  -webkit-animation: shake $rolltime ease-in-out infinite
+.ground
+  position: absolute
+  top: 75%
+  left: 0
+  right: 0
+  bottom: 0
+  background-color: #656D78
+.placement
+  position: absolute
+  bottom: 25%
+  left: 30%
+  animation: placement-move $rolltime linear infinite
+  -webkit-animation: placement-move $rolltime linear infinite
+  .square
+    width: 200px
+    height: 200px
+    background-color: #BAA286
+    transform-origin: 200px 200px
+    -webkit-transform-origin: 200px 200px
+    animation: roll $rolltime linear infinite
+    -webkit-animation: roll $rolltime linear infinite
+
+.circleBox
+  width: 80%
+  height: 200px
+  position: absolute
+  top: 10%
+  left: 50%
+  transform: translateX(-50%)
+  background: #f0f0f0
+  display: flex
+  align-items: center
+  justify-content: center
+
+.circle
+  width: $circle
+  height: $circle
+  border-radius: 50%
+  border: 1px solid #ffffff
+  position: relative
+  margin-left: -$circle / 1.95
+  &::after
+    content: " "
+    position: absolute
+    top: calc(50% - (#{$ball} / 2))
+    left: calc(50% - (#{$ball} / 2))
+    width: $ball
+    height: $ball
+    background: #000000
+    opacity: 0
+    border-radius: 50%
+
+@for $i from 1 through $items
+  .circle:nth-of-type(#{$i})::after
+    animation: rotate $circletime .25s*$i linear infinite, fadeIn $circletime .25s*$i linear 1 forwards
+
+
+// 滚动的方块
+
+@keyframes placement-move
+  0%
+    transform: translateX(0px)
+    -webkit-transform: translateX(0px)
+  100%
+    transform: translateX(-200px)
+    -webkit-transform: translateX(-200px)
+
+@keyframes roll
+    0%
+      transform: rotate(0deg)
+    5%
+      transform: rotate(12deg)
+    10%
+      transform: rotate(22.5deg)
+
+    20%
+      transform: rotate(38.5deg)
+
+    25%
+      transform: rotate(45deg)
+
+    34%
+      transform: rotate(60deg)
+
+    38%
+      transform: rotate(80deg)
+
+    40%,
+    100%
+      transform: rotate(90deg)
+
+@keyframes shake
+    0%,
+    39%,
+    50%,
+    100%
+      transform: translateY(0px)
+
+    42%
+      transform: translateY(-20px)
+
+    45%
+      transform: translateY(15px)
+
+    47%
+      transform: translateY(-10px)
+
+    49%
+      transform: translateY(5px)
+
+// 波浪的小球
+@keyframes fadeIn
+  0%
+    opacity: 0
+  100%
+    opacity: 1
+
+// @keyframes rotate
+//   0%
+//     transform: rotate(-180deg) translateY($circle / 2) rotate(180deg)
+//   100%
+//     transform: rotate(180deg) translateY($circle / 2) rotate(180deg)
+@keyframes rotate
+  0%
+    transform: rotate(-180deg) translateY($circle / 2)
+  100%
+    transform: rotate(180deg) translateY($circle / 2)

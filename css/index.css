@@ -1,0 +1,144 @@
+body {
+  background-color: #AAB2BD; }
+
+.frame {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: -50px;
+  right: 0;
+  animation: shake 1.9s ease-in-out infinite;
+  -webkit-animation: shake 1.9s ease-in-out infinite; }
+
+.ground {
+  position: absolute;
+  top: 75%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #656D78; }
+
+.placement {
+  position: absolute;
+  bottom: 25%;
+  left: 30%;
+  animation: placement-move 1.9s linear infinite;
+  -webkit-animation: placement-move 1.9s linear infinite; }
+  .placement .square {
+    width: 200px;
+    height: 200px;
+    background-color: #BAA286;
+    transform-origin: 200px 200px;
+    -webkit-transform-origin: 200px 200px;
+    animation: roll 1.9s linear infinite;
+    -webkit-animation: roll 1.9s linear infinite; }
+
+.circleBox {
+  width: 80%;
+  height: 200px;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 1px solid #ffffff;
+  position: relative;
+  margin-left: -51.2820512821px; }
+  .circle::after {
+    content: " ";
+    position: absolute;
+    top: calc(50% - (20px / 2));
+    left: calc(50% - (20px / 2));
+    width: 20px;
+    height: 20px;
+    background: #000000;
+    opacity: 0;
+    border-radius: 50%; }
+
+.circle:nth-of-type(1)::after {
+  animation: rotate 2.5s 0.25s linear infinite, fadeIn 2.5s 0.25s linear 1 forwards; }
+
+.circle:nth-of-type(2)::after {
+  animation: rotate 2.5s 0.5s linear infinite, fadeIn 2.5s 0.5s linear 1 forwards; }
+
+.circle:nth-of-type(3)::after {
+  animation: rotate 2.5s 0.75s linear infinite, fadeIn 2.5s 0.75s linear 1 forwards; }
+
+.circle:nth-of-type(4)::after {
+  animation: rotate 2.5s 1s linear infinite, fadeIn 2.5s 1s linear 1 forwards; }
+
+.circle:nth-of-type(5)::after {
+  animation: rotate 2.5s 1.25s linear infinite, fadeIn 2.5s 1.25s linear 1 forwards; }
+
+.circle:nth-of-type(6)::after {
+  animation: rotate 2.5s 1.5s linear infinite, fadeIn 2.5s 1.5s linear 1 forwards; }
+
+.circle:nth-of-type(7)::after {
+  animation: rotate 2.5s 1.75s linear infinite, fadeIn 2.5s 1.75s linear 1 forwards; }
+
+.circle:nth-of-type(8)::after {
+  animation: rotate 2.5s 2s linear infinite, fadeIn 2.5s 2s linear 1 forwards; }
+
+.circle:nth-of-type(9)::after {
+  animation: rotate 2.5s 2.25s linear infinite, fadeIn 2.5s 2.25s linear 1 forwards; }
+
+.circle:nth-of-type(10)::after {
+  animation: rotate 2.5s 2.5s linear infinite, fadeIn 2.5s 2.5s linear 1 forwards; }
+
+@keyframes placement-move {
+  0% {
+    transform: translateX(0px);
+    -webkit-transform: translateX(0px); }
+  100% {
+    transform: translateX(-200px);
+    -webkit-transform: translateX(-200px); } }
+@keyframes roll {
+  0% {
+    transform: rotate(0deg); }
+  5% {
+    transform: rotate(12deg); }
+  10% {
+    transform: rotate(22.5deg); }
+  20% {
+    transform: rotate(38.5deg); }
+  25% {
+    transform: rotate(45deg); }
+  34% {
+    transform: rotate(60deg); }
+  38% {
+    transform: rotate(80deg); }
+  40%,
+100% {
+    transform: rotate(90deg); } }
+@keyframes shake {
+  0%,
+39%,
+50%,
+100% {
+    transform: translateY(0px); }
+  42% {
+    transform: translateY(-20px); }
+  45% {
+    transform: translateY(15px); }
+  47% {
+    transform: translateY(-10px); }
+  49% {
+    transform: translateY(5px); } }
+@keyframes fadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+@keyframes rotate {
+  0% {
+    transform: rotate(-180deg) translateY(50px); }
+  100% {
+    transform: rotate(180deg) translateY(50px); } }
